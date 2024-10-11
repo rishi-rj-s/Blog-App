@@ -1,0 +1,29 @@
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.blog-actions .button {
+  flex: 1;
+}

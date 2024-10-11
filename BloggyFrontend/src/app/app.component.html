@@ -1,0 +1,36 @@
+<header>
+  <h1>Blog Feed</h1>
+  <button class="button" role="button" (click)="createBlog()">Create Blog</button>
+</header>
+<main>
+
+  <!-- Blog Posts Section -->
+  <div *ngIf="showBlogs; else noBlogs">
+    <article class="blog-post" *ngFor="let post of blogPosts">
+      <button class="delete-button" aria-label="Delete blog post" (click)="openDelete('id')"
+        title="Delete post">×</button>
+      <app-delete-blogs *ngIf="deleteOpen" (closeModal)="closeModal()" />
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <div class="blog-actions">
+        <button class="button" (click)="viewComments('id')">View Comments</button>
+        <button class="button" (click)="addComment('id')">Add Comment</button>
+      </div>
+    </article>
+  </div>
+
+  <!-- No Blogs Template -->
+  <ng-template #noBlogs>
+    <div class="no-blogs">
+      <h2>No Blogs Available</h2>
+      <p>There are currently no blog posts to display.</p>
+    </div>
+  </ng-template>
+
+  <!-- Conditionally render the child (modal) component -->
+  <app-create-blog *ngIf="createOpen" (closeModal)="closeModal()" />
+  <app-delete-blogs *ngIf="deleteOpen" (closeModal)="cancelDelete()" />
+  <app-comments *ngIf="viewCommentOpen" (closeModal)="closeViewComment()" />
+  <app-write-comments *ngIf="writeCommentOpen" (closeModal)="closeWriteComment()" />
+
+</main>

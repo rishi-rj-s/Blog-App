@@ -1,0 +1,72 @@
+.modal {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     position: fixed;
+     z-index: 1002;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 80%;
+     max-width: 400px;
+     padding: 20px;
+     background-color: rgba(0, 0, 0, 0.8);
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+ }
+ 
+ .modal-content {
+     background-color: #fefefe;
+     padding: 20px 30px;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .close {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     background-color: transparent;
+     border: none;
+     color: #fff;
+     font-size: 20px;
+     cursor: pointer;
+ }
+ 
+ .button-container {
+     text-align: right;
+ }
+ 
+ /* Styles for the textarea */
+ textarea {
+     height: 100px;
+     width: 100%;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     padding: 5px;
+     resize: vertical;
+     font-size: 14px;
+ }
+ 
+ /* Styles for the submit button */
+ .submit-button {
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 14px;
+     padding: 8px 15px;
+ }
+ 
+ /* Styles for the name input */
+ input[type="text"] {
+     width: 100%; /* Full width */
+     border: 1px solid #ccc; /* Border color */
+     border-radius: 5px; /* Rounded corners */
+     padding: 8px; /* Padding inside the input */
+     margin-top: 10px; /* Space above the input */
+     font-size: 14px; /* Font size for text */
+ }
+ 

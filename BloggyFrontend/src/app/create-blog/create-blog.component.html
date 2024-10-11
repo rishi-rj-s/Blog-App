@@ -1,0 +1,17 @@
+  <!-- New Blog Modal Template -->
+  <div id="blogModal" class="modal">
+     <div class="modal-content">
+       <button class="close" (click)="close()">&times;</button>
+       <h2>Create New Blog Post</h2>
+       <form #blogForm="ngForm" (ngSubmit)="onSubmit(blogForm)">
+        <label for="blogHeading">Blog Heading:</label>
+        <input type="text" id="blogHeading" name="blogHeading" required ngModel>
+  
+        <label for="blogContent">Blog Content:</label>
+        <textarea id="blogContent" name="blogContent" required ngModel></textarea>
+  
+        <button type="submit" class="button" style="margin-top: 20px;" [disabled]="!blogForm.valid">Submit Blog</button>
+      </form>
+     </div>
+   </div>
+ 

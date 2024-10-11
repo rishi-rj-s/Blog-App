@@ -1,0 +1,20 @@
+<div class="modal" id="commentModal">
+  <div class="modal-content">
+    <span class="close" (click)="close()">&times;</span>
+    <h2>Leave a Comment</h2>
+    
+    <form #commentForm="ngForm" (ngSubmit)="onSubmit(commentForm)">
+      <!-- Input for Name -->
+      <label for="nameInput">Your Name:</label>
+      <input type="text" id="nameInput" name="name" ngModel placeholder="Enter your name" required />
+
+      <!-- Textarea for Comment -->
+      <label for="commentInput">Comment:</label>
+      <textarea id="commentInput" name="comment" ngModel placeholder="Write your comment..." required></textarea>
+
+      <div class="button-container">
+        <button type="submit" class="submit-button" [disabled]="!commentForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
