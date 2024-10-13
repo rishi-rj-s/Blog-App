@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package blog;
+
+service BlogService {
+  rpc CreateBlog(CreateBlogRequest) returns (CreateBlogResponse);
+
+  rpc GetAllBlogs(Empty) returns (GetAllBlogsResponse);
+}
+
+message Blog {
+  string id = 1;       // Blog ID
+  string title = 2;    // Blog title
+  string content = 3;  // Blog content
+  string createdAt = 4; // Blog creation
+}
+
+message CreateBlogRequest {
+  string title = 1;   // Title for the blog
+  string content = 2; // Content of the blog
+}
+
+message CreateBlogResponse {
+  Blog blog = 1; // The newly created blog
+}
+
+message Empty {
+  // This is used for requests that don't require input parameters
+}
+
+message GetAllBlogsResponse {
+  repeated Blog blogs = 1; // List of all blogs
+}

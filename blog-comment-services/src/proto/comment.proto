@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package comment;
+
+service CommentService {
+  rpc CreateComment(CreateCommentRequest) returns (CreateCommentResponse);
+
+  rpc GetCommentsForBlog(GetCommentsForBlogRequest) returns (GetCommentsForBlogResponse);
+}
+
+message Comment {
+  string id = 1;           // Comment ID
+  string blogId = 2;       // Associated Blog ID
+  string comment = 3; // Text of the comment
+  string name = 4;        // Name of the person making the comment
+  string createdAt = 5;   // Timestamp for comment creation
+}
+
+message CreateCommentRequest {
+  string blogId = 1;       // Associated Blog ID
+  string comment = 2; // Text of the comment
+  string name = 3;        // Name of the commenter
+}
+
+message CreateCommentResponse {
+  Comment comment = 1; // The newly created comment
+}
+
+message GetCommentsForBlogRequest {
+  string blogId = 1; // ID of the blog to get comments for
+}
+
+message GetCommentsForBlogResponse {
+  repeated Comment comments = 1; // List of comments for the blog
+}

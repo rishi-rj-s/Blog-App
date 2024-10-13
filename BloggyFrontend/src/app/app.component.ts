@@ -49,17 +49,4 @@ export class AppComponent implements OnInit{
     this.viewCommentOpen = false;
   }
 
-  // Deletion logic
-  deleteOpen = false;
-  openDelete(id:string){
-    this.deleteOpen = true;
-  }
-  cancelDelete(){
-    this.deleteOpen = false
-  }
-  deletePost(post: any) {
-    if (this.blogPosts.length === 0) {
-      this.showBlogs = false;
-    }
-  }
 }
