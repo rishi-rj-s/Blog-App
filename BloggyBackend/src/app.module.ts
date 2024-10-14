@@ -7,6 +7,7 @@ import { BlogModule } from './blog/blog.module';
 import { AppController } from './app.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
+import { LoggingService } from './logging-service';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { join } from 'path';
     CommentModule,
   ],
   controllers: [AppController],
-  providers: []
+  providers: [LoggingService],
+  exports: [LoggingService]
 })
 export class AppModule { }

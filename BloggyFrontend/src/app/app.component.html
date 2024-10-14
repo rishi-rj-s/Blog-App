@@ -6,12 +6,12 @@
 
   <!-- Blog Posts Section -->
   <div *ngIf="showBlogs; else noBlogs">
-    <article class="blog-post" *ngFor="let post of blogPosts">
+    <article class="blog-post" *ngFor="let post of blogs">
       <h2>{{ post.title }}</h2>
       <p>{{ post.content }}</p>
       <div class="blog-actions">
-        <button class="button" (click)="viewComments('id')">View Comments</button>
-        <button class="button" (click)="addComment('id')">Add Comment</button>
+        <button class="button" (click)="viewComments(post.id)">View Comments</button>
+        <button class="button" (click)="addComment(post.id)">Add Comment</button>
       </div>
     </article>
   </div>
@@ -24,9 +24,9 @@
     </div>
   </ng-template>
 
-  <!-- Conditionally render the child (modal) component -->
-  <app-create-blog *ngIf="createOpen" (closeModal)="closeModal()" />
-  <app-comments *ngIf="viewCommentOpen" (closeModal)="closeViewComment()" />
-  <app-write-comments *ngIf="writeCommentOpen" (closeModal)="closeWriteComment()" />
+  <!-- Conditionally render the Popups -->
+  <app-create-blog *ngIf="createOpen" (blogCreated)="onBlogCreated()" (closeModal)="closeModal()" />
+  <app-comments *ngIf="viewCommentOpen" [blogId]="selectedBlogId" (closeModal)="closeViewComment()" />
+  <app-write-comments *ngIf="writeCommentOpen" [blogId]="selectedBlogId" (closeModal)="closeWriteComment()" />
 
 </main>

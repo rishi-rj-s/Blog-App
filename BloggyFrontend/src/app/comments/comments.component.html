@@ -1,21 +1,29 @@
-<!-- Comments Template -->
+<!-- Comments Modal Template -->
 <div id="commentsModal" class="comments-modal">
      <div class="comments-content">
-         <span class="close" (click)="close()">&times;</span>
-         <h2>Comments</h2>
-         <div id="commentsList">
-          <div class="comment">
-               <p><span class="comment-author">You</span> <span class="comment-date"> 27-08-2003</span></p>
-                    <p>Yo shawtyy!! Nice say!</p>
-          </div>
-          <div class="comment">
-               <p><span class="comment-author">You</span> <span class="comment-date"> 27-08-2003</span></p>
-                    <p>Yo shawtyy!! Nice say!</p>
-          </div>
-          <div class="comment">
-               <p><span class="comment-author">You</span> <span class="comment-date"> 27-08-2003</span></p>
-                    <p>Yo shawtyy!! Nice say!</p>
-          </div>
+       <span class="close" (click)="close()">&times;</span>
+       <h2>Comments</h2>
+   
+       <!-- Display comments if available, else show a "No Comments" message -->
+       <div id="commentsList">
+         <!-- ngIf checks if comments array is empty -->
+         <div *ngIf="comments.length > 0; else noCommentsTemplate">
+           <div class="comment" *ngFor="let comment of comments">
+             <p>
+               <span class="comment-author">{{ comment.name || 'Anonymous' }}</span>
+               &nbsp;<span class="comment-date">{{ comment.createdAt | date: 'dd-MM-yyyy HH:mm:ss' }}</span>
+             </p>
+             <p>{{ comment.comment }}</p>
+           </div>
          </div>
+   
+         <!-- Template shown when no comments are available -->
+         <ng-template #noCommentsTemplate>
+           <div class="no-comments">
+             <p>No comments available.</p>
+           </div>
+         </ng-template>
+       </div>
      </div>
- </div>
+   </div>
+   

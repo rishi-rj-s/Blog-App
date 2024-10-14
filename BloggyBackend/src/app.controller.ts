@@ -30,7 +30,7 @@ export class AppController {
     try {
       const result = await firstValueFrom(this.blogService.createBlog(createBlogDto));
       console.log("Result",result);
-      return true;
+      return result;
     } catch (error) {
       throw error;
     }
