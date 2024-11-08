@@ -6,9 +6,6 @@ import { BlogService } from './blog/blog-service.interface';
 import { CommentService } from './comment/comment-service.interface';
 import { CreateBlogDto } from './blog/dto/create-blog.dto';
 import { CreateCommentDto } from './comment/dto/create-comment.dto';
-import { json } from 'stream/consumers';
-import { Blog } from './blog/entities/blog.entity';
-import { Comment } from './comment/entities/comment.entity';
 
 @Controller('api')
 export class AppController {

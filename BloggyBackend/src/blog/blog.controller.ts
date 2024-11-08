@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { Blog } from './entities/blog.entity';
 import { GrpcMethod } from '@nestjs/microservices';
